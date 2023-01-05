@@ -1,5 +1,5 @@
 # Smart Coaster
-A Raspberry Pi Pico smart coaster to help drinking more water
+A Raspberry Pi Pico MicroPython smart coaster to help drinking more water
 
 ## Materials
 - 1x Raspberry Pi Pico
