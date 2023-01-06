@@ -8,10 +8,10 @@ PIN_BLUE = 13
 PIN_BUZZER = 16
 BUZZER_DUTY = 600
 BUZZER_FREQ = 2500
-ADC_LEVEL = 1000 # Analog threshold
+ADC_LEVEL = 10000 # Analog threshold, how much light change to trigger detection
 
 TIMER_PERIOD = 2500 # In Msecs
-DRINK_TICKS = 240  # In terms of timer period (10 minutes * 60 secs/min div 2.5 msec = 240)
+DRINK_TICKS = 480  # In terms of timer period (20 minutes * 60 secs/min div 2.5 msec = 480)
 
 class SmartCoaster:
     def __init__(self):
@@ -46,14 +46,9 @@ class SmartCoaster:
 
         if self.ticks > 2 * DRINK_TICKS:
           self.blue.off()
-          if self.blink:
-            self.blink = False
-            self.red.on()
-            self.buzzer.duty_u16(BUZZER_DUTY)
-          else:
-            self.blink = True
-            self.red.on()
-            self.buzzer.duty_u16(BUZZER_DUTY)
+          self.red.on()
+          self.buzzer.duty_u16(BUZZER_DUTY)
+          self.blink = False
 
       elif abs(current_value - self.value) >= ADC_LEVEL:
         self.ticks = 0
