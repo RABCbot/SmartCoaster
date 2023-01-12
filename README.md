@@ -10,3 +10,4 @@ A Raspberry Pi Pico MicroPython smart coaster to help drinking more water
 
 ![](coaster.png)
 ![](coaster-assembly.jpg)
+![](coaster-top.jpg)
